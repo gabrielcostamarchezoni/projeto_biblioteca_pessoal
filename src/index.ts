@@ -110,6 +110,44 @@ marcarComoLido(0, 5);
 console.log("Livros lidos:", listarLidos());
 console.log("Livros pendentes:", listarPendentes()); 
 
+function totalLivros(): number {
+    return titulos.length;
+}
+
+function totalLidos(): number {
+    return lido.filter(status => status).length;
+}
+
+function percentualLidos(): number {
+    return totalLivros() > 0 ? (totalLidos() / totalLivros()) * 100 : 0;
+}
+
+function mediaAvaliacoes(): number {
+    const soma = avaliacoes.reduce((acc, aval, i) => acc + (lido[i] ? aval : 0), 0);
+    return totalLidos() > 0 ? soma / totalLidos() : 0;
+}
+
+function livroMaiorAvaliacao(): string {
+    return titulos.reduce((melhor, titulo, i) => {
+        if (!lido[i]) return melhor;
+        const avalMelhor = melhor ? avaliacoes[titulos.indexOf(melhor)] ?? 0 : 0;
+        return (avaliacoes[i] ?? 0) > avalMelhor ? titulo : melhor;
+    }, "");
+}
+
+function totalPaginasLidas(): number {
+    return paginas.filter((_, i) => lido[i]).reduce((soma, pag) => soma + pag, 0);
+}
+
+console.log("\n=== ESTATÍSTICAS ===");
+console.log("Total de livros:", totalLivros());
+console.log("Total lidos:", totalLidos());
+console.log("Percentual lidos:", percentualLidos().toFixed(2) + "%");
+console.log("Média das avaliações:", mediaAvaliacoes().toFixed(2));
+console.log("Livro melhor avaliado:", livroMaiorAvaliacao());
+console.log("Total de páginas lidas:", totalPaginasLidas());
+
+
 
 
 
