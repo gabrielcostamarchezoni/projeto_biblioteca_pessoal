@@ -28,3 +28,43 @@ function exibirBiblioteca(): void {
 }
 
 exibirBiblioteca();
+
+function adicionarLivro(titulo: string, autor: string, ano: number, paginasLivro: number): void {
+    if (ano <= 0 || paginasLivro <= 0) {
+        console.log("Ano e páginas devem ser maiores que zero.");
+        return;
+    }
+    titulos.push(titulo);
+    autores.push(autor);
+    anos.push(ano);
+    paginas.push(paginasLivro);
+    editora.push(""); // ou um parâmetro extra
+    genero.push("");
+    lido.push(false);
+    avaliacoes.push(0);
+    console.log(`Livro "${titulo}" adicionado à biblioteca.`);
+}
+
+function removerLivro(index: number): void {
+    if (index >= 0 && index < titulos.length) {
+        const removedTitle = titulos[index];
+        titulos.splice(index, 1);
+        autores.splice(index, 1);
+        anos.splice(index, 1);
+        paginas.splice(index, 1);
+        editora.splice(index, 1);
+        genero.splice(index, 1);
+        lido.splice(index, 1);
+        avaliacoes.splice(index, 1);
+        console.log(`Livro "${removedTitle}" removido da biblioteca.`);
+    } else {
+        console.log("Índice inválido.");
+    }
+}   
+
+adicionarLivro("Harry Potter", "J.K. Rowling", 1997, 400);
+exibirBiblioteca();
+removerLivro(6);
+exibirBiblioteca();
+
+
