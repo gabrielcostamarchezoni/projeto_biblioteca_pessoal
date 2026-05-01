@@ -1,4 +1,6 @@
-Biblioteca Pessoal
+Biblioteca Pessoal de:
+
+Gabriel Costa Marchezoni
 
 Projeto Integrador da disciplina de Linguagem de Programação — desenvolvido em TypeScript, consolida os conceitos estudados até a Aula 06.
 Sobre o projeto
