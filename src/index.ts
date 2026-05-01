@@ -15,4 +15,16 @@ paginas.push(1216,384,736,592,480,320);
 editora.push('HarperCollins','Arqueiro','Arqueiro','Arqueiro','Arqueiro','Intrínseca');
 genero.push('Fantasia','Ficção Científica','Ficção Científica','Ficção Científica','Ficção Científica','Biografia');
 lido.push(false,true,true,true,true,true);
-avaliacoes.push(5,4,4,3,4,5);
+avaliacoes.push(0,4,4,3,4,5);
+
+function exibirBiblioteca(): void {
+    console.log("Biblioteca Pessoal:");
+    titulos.forEach((titulo, index) => {
+        const status = lido[index]
+            ? `LIDO (${avaliacoes[index]}/5)`
+            : "PENDENTE";
+        console.log(`${index + 1}. "${titulo}" - ${autores[index]} (${anos[index]}) - ${paginas[index]} pag - ${status}`);
+    });
+}
+
+exibirBiblioteca();
