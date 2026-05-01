@@ -67,4 +67,25 @@ exibirBiblioteca();
 removerLivro(6);
 exibirBiblioteca();
 
+function buscarPorTitulo(termo: string): number[] {
+    return titulos.reduce((indices: number[], titulo, i) => {
+        if (titulo.toLowerCase().includes(termo.toLowerCase())) {
+            indices.push(i);
+        }
+        return indices;
+    }, []);
+}
+
+function listarPorAutor(autor: string): string[] {
+    return titulos.filter((_, i) =>
+        (autores[i] ?? '').toLowerCase() === autor.toLowerCase()
+    ).map((titulo) => titulo);
+}
+
+console.log("Busca por 'código':", buscarPorTitulo("código"));
+console.log("Livros de Dan Brown:", listarPorAutor("Dan Brown"));
+
+
+
+
 
