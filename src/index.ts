@@ -85,6 +85,33 @@ function listarPorAutor(autor: string): string[] {
 console.log("Busca por 'código':", buscarPorTitulo("código"));
 console.log("Livros de Dan Brown:", listarPorAutor("Dan Brown"));
 
+function marcarComoLido(indice: number, avaliacao: number): void {
+    if (indice < 0 || indice >= titulos.length) {
+        console.log("Índice inválido.");
+        return;
+    }
+    if (avaliacao < 1 || avaliacao > 5) {
+        console.log("Avaliação deve ser entre 1 e 5.");
+        return;
+    }
+    lido[indice] = true;
+    avaliacoes[indice] = avaliacao;
+    console.log(`Livro "${titulos[indice]}" marcado como lido com avaliação ${avaliacao}/5.`);
+}
+
+function listarLidos(): string[] {
+    return titulos.filter((_, i) => lido[i]);
+}
+
+function listarPendentes(): string[] {
+    return titulos.filter((_, i) => !lido[i]);
+}
+marcarComoLido(0, 5);
+console.log("Livros lidos:", listarLidos());
+console.log("Livros pendentes:", listarPendentes()); 
+
+
+
 
 
 
