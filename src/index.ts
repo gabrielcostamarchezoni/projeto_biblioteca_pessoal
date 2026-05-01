@@ -147,6 +147,26 @@ console.log("Média das avaliações:", mediaAvaliacoes().toFixed(2));
 console.log("Livro melhor avaliado:", livroMaiorAvaliacao());
 console.log("Total de páginas lidas:", totalPaginasLidas());
 
+function exibirPorDecada(): void {
+    console.log("\n=== POR DÉCADA ===");
+
+    const todasDecadas = anos.map(ano => Math.floor(ano / 10) * 10);
+    const decadasUnicas = todasDecadas.filter((d, i, arr) => arr.indexOf(d) === i).sort();
+
+    decadasUnicas.forEach(decada => {
+        const livrosDaDecada: string[] = [];
+        titulos.forEach((titulo, i) => {
+            const ano = anos[i] ?? 0;
+            if (Math.floor(ano / 10) * 10 === decada) {
+                livrosDaDecada.push(titulo);
+            }
+        });
+        console.log(`${decada}s: ${livrosDaDecada.join(", ")}`);
+    });
+}
+exibirPorDecada();
+
+
 
 
 
