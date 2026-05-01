@@ -166,6 +166,20 @@ function exibirPorDecada(): void {
 }
 exibirPorDecada();
 
+//Demo
+
+exibirBiblioteca();
+
+console.log("\n=== ESTATÍSTICAS ===");
+console.log("Total de livros:", totalLivros());
+console.log("Total lidos:", totalLidos());
+console.log("Percentual lidos:", percentualLidos().toFixed(2) + "%");
+console.log("Média das avaliações:", mediaAvaliacoes().toFixed(2));
+console.log("Livro melhor avaliado:", livroMaiorAvaliacao());
+console.log("Total de páginas lidas:", totalPaginasLidas());
+
+exibirPorDecada();
+
 
 
 
